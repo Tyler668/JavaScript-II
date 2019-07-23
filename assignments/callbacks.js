@@ -1,6 +1,6 @@
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
-const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
+const items = ['Pencil', 'Pencil', 'Notebook', 'Notebook', 'yo-yo', 'Gum'];
 
 /* 
 
@@ -30,34 +30,34 @@ function getLength(arr, cb) {
   return cb(arr.length);
 }
 
-getLength(items, function(arrLength){
+getLength(items, function (arrLength) {
   console.log(arrLength);
 })
 
 function last(arr, cb) {
   // last passes the last item of the array into the callback.
-  return cb(arr[arr.length-1])
+  return cb(arr[arr.length - 1])
 }
 
-last(items, function(last){
+last(items, function (last) {
   console.log(last);
 })
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-  return cb(x+y);
+  return cb(x + y);
 }
 
-sumNums(7,9,function(sum){
+sumNums(7, 9, function (sum) {
   console.log(sum);
 })
 
 function multiplyNums(x, y, cb) {
   // multiplyNums multiplies two numbers and passes the result to the callback.
-  return cb(x*y);
+  return cb(x * y);
 }
 
-multiplyNums(7,9,function(product){
+multiplyNums(7, 9, function (product) {
   console.log(product);
 })
 
@@ -67,20 +67,30 @@ function contains(item, list, cb) {
   return cb(item, list);
 }
 
-contains('Gum', items, function(thing, array){
+contains('Gum', items, function (thing, array) {
   console.log(array.includes(thing));
 })
 
 /* STRETCH PROBLEM */
 
+
+
+
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
- return cb(array);
-
+  return cb(array);
 }
 
-// removeDuplicates(items, function(itemToRemove, list){
-//   const newArray = list.filter()
-// })
+
+
+function removeRepeats(arr){
+  let fixedArray = [];
+  fixedArray = arr.filter((item, index) =>  arr.indexOf(item) === index);
+  console.table(fixedArray);
+}
+
+removeDuplicates(items, removeRepeats());
+
+
