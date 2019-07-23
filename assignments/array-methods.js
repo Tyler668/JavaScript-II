@@ -99,16 +99,24 @@ console.table(ticketPriceTotal);
 
 let upperClass = [];
 upperClass = runners.filter(function (runner) {
-    return runner.donation > 100;
+    return runner.donation >= 100;
 })
 
 console.table(upperClass);
 // Problem 2
 //After inadvertantly slashing net profits following the culling of sub-$100 donations, the director has instructed you to stealthily increase the donation of the upperClass by 1.25x each. 
-upperClass = upperClass.forEach(function (runner) {
+upperClass.forEach(function(runner) {
     runner.donation = runner.donation * 1.25;
-    return runner;
 })
 
 console.table(upperClass);
 // Problem 3
+//Use .reduce to check if this series of cover-ups has made up for the initial loss in profits
+newTotal = [];
+
+newTotal = upperClass.reduce(function (acc, curr, ) {
+    return acc + curr.donation;
+}, 0)
+console.table(newTotal);
+
+//It totally does.
